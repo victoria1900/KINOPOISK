@@ -2,12 +2,12 @@ import React, {useState} from 'react';
 import {Button, ButtonGroup, Typography} from "@mui/material";
 import {movieList} from "../../../../data/movie-list";
 import {useDispatch, useSelector} from "react-redux";
+import {ButtonPaginate, PagesPaginate} from "./styled";
 
 export const contentPerPage = 6;
-
 const CustomPagination = () => {
     const dispatch = useDispatch();
-    const {currentPage} = useSelector(state => state);
+    const {currentPage} = useSelector(state => state.pages);
     const totalPages = Math.ceil(movieList.length / contentPerPage);
 
     function nextPage() {
@@ -25,17 +25,12 @@ const CustomPagination = () => {
     return (
         <>
             <ButtonGroup>
-                <Button variant='contained' color='primary' size='small' onClick={backPage} disabled={currentPage === 1}
-                        sx={{width: '100%', marginRight: '5px'}}>Назад</Button>
-                <Button variant='contained' color='primary' size='small' onClick={nextPage}
-                        disabled={currentPage === totalPages}
-                        sx={{width: '100%', marginLeft: '5px'}}>Вперед</Button>
+                <ButtonPaginate variant='contained' color='primary' size='small' onClick={backPage}
+                                disabled={currentPage === 1}>Назад</ButtonPaginate>
+                <ButtonPaginate variant='contained' color='primary' size='small' onClick={nextPage}
+                                disabled={currentPage === totalPages}>Вперед</ButtonPaginate>
             </ButtonGroup>
-            <Typography sx={{
-                paddingTop: '10px',
-                display: 'flex',
-                justifyContent: 'center'
-            }}>{currentPage} of {totalPages}</Typography>
+            <PagesPaginate>{currentPage} of {totalPages}</PagesPaginate>
         </>
     );
 };
