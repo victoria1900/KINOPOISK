@@ -1,8 +1,8 @@
 import React from 'react';
 import {Card, CardContent, CardMedia, Grid, Typography} from "@mui/material";
 import {IMAGE_URL} from "../../../../core/const/config";
-import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
-import {ButtonDetail, CardBox, CardButton, CardDesc, DetailContainer, MovieTitle} from "./styled";
+import {ButtonDetail, CardBox, CardDesc, DetailContainer, MovieTitle} from "./styled";
+import CardIcons from "../../../../core/utils/card-icons";
 
 const MovieCard = ({movie}) => {
     return <Grid item md={6}>
@@ -15,14 +15,7 @@ const MovieCard = ({movie}) => {
                     <CardContent>
                         <CardBox>
                             <Typography>Рейтинг: {movie.vote_average}</Typography>
-                            <CardBox>
-                                <CardButton variant="plain">
-                                    <FavoriteBorder/>
-                                </CardButton>
-                                <CardButton variant="plain">
-                                    <FavoriteBorder/>
-                                </CardButton>
-                            </CardBox>
+                            <CardIcons movie={movie}/>
                         </CardBox>
                         <MovieTitle>{movie.title}</MovieTitle>
                     </CardContent>

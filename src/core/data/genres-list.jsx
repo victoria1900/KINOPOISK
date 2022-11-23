@@ -1,4 +1,4 @@
-export const checkboxesList = [
+export const genresList = [
   {
     "id": 28,
     "name": "боевик"

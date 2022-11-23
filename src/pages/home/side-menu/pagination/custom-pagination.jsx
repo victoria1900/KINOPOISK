@@ -1,14 +1,16 @@
 import React, {useState} from 'react';
 import {Button, ButtonGroup, Typography} from "@mui/material";
-import {movieList} from "../../../../data/movie-list";
+import {movieListData} from "../../../../core/data/movie-list-data";
 import {useDispatch, useSelector} from "react-redux";
 import {ButtonPaginate, PagesPaginate} from "./styled";
+import {genreSelect} from "../filters/selects/genre-select";
 
-export const contentPerPage = 6;
+export const contentPerPage = 10;
 const CustomPagination = () => {
     const dispatch = useDispatch();
-    const {currentPage} = useSelector(state => state.pages);
-    const totalPages = Math.ceil(movieList.length / contentPerPage);
+    const {currentPage} = useSelector(state => state.flipPages);
+    const moviesLength = useSelector(state => state.moviesLength);
+    const totalPages = Math.ceil(moviesLength.length / contentPerPage);
 
     function nextPage() {
         if (currentPage < totalPages) {
