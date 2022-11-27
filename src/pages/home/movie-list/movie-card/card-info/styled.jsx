@@ -1,6 +1,7 @@
-import {Box, Button, CardActions, Grid, IconButton, styled, Typography} from "@mui/material";
+import {Box,  CardActions, Grid, styled, Typography} from "@mui/material";
+import {Link} from "react-router-dom";
 
-export const ButtonDetail = styled(Button)({
+export const ButtonDetail = styled(Link)({
     color: 'black',
     textDecoration: 'none',
     padding: '10px',
@@ -21,9 +22,4 @@ export const CardDesc = styled(Grid)({
 });
 export const CardBox = styled(Box)({
     display: 'flex'
-});
-
-export const CardButton = styled(IconButton)({
-    paddingTop: '0px',
-    paddingBottom: '0px'
 });

@@ -12,7 +12,7 @@ const LoginModal = () => {
     }
     return (
         <Dialog open={toggleModal} onClose={closeModal} aria-labelledby="form-dialog-title">
-            <LoginForm/>
+            <LoginForm closeModal={closeModal}/>
         </Dialog>
     );
 };

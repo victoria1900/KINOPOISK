@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {Button, DialogActions, DialogContent, TextField} from "@mui/material";
 import {DEFAULT_USER_NAME, DEFAULT_USER_PASSWORD} from "../../core/const/config";
-import {useDispatch, useSelector} from "react-redux";
+import {useDispatch} from "react-redux";
 
-const LoginForm = () => {
+const LoginForm = ({closeModal}) => {
     const [login, setLogin] = useState('');
     const [password, setPassword] = useState('');
     const isAuthorizedUser = login === DEFAULT_USER_NAME && password === DEFAULT_USER_PASSWORD;
@@ -18,9 +18,7 @@ const LoginForm = () => {
             alert('wrong user name or password!');
         }
     }
-    const closeModal = () => {
-        dispatch({type: 'TOGGLE_MODAL', payload: false});
-    }
+
     return (
         <>
             <DialogContent>

@@ -2,11 +2,10 @@ import {combineReducers, createStore} from "redux";
 import React from 'react';
 import {movieListData} from "../data/movie-list-data";
 
-const defaultState = {
-    currentPage: 1
-};
-
+const defaultState = {currentPage: 1};
 const defaultIsAuthorized = Boolean(localStorage.getItem('isAuthorized'));
+const defaultFavoriteMovies = JSON.parse(localStorage.getItem('listFavoriteMovies'));
+const defaultWatchLater = JSON.parse(localStorage.getItem('listWatchLater'));
 
 const flipPages = (state = defaultState, action) => {
     switch (action.type) {
@@ -77,20 +76,42 @@ const isAuthorized = (state = defaultIsAuthorized, action) => {
             return state;
     }
 }
-
-const listFavoriteMovies = (state= [], action)=>{
-    switch (action.type){
+const listFavoriteMovies = (state = defaultFavoriteMovies, action) => {
+    switch (action.type) {
         case 'ADD_TO_FAVORITE':
+            if (state === null) {
+                state = [];
+                return [...state, action.payload];
+            }
+            if (state.includes(action.payload)) {
+                return state.filter(item => item !== action.payload);
+            }
             return [...state, action.payload];
         default:
             return state;
     }
 }
 
-const listWatchLater = (state=[], action)=>{
-    switch (action.type){
+const listWatchLater = (state = defaultWatchLater, action) => {
+    switch (action.type) {
         case 'ADD_TO_WATCH_LATER':
+            if (state === null) {
+                state = [];
+                return [...state, action.payload];
+            }
+            if (state.includes(action.payload)) {
+                return state.filter(item => item !== action.payload);
+            }
             return [...state, action.payload];
+        default:
+            return state;
+    }
+}
+
+const selectMovie = (state = '', action) => {
+    switch (action.type) {
+        case 'GET_SELECTED_MOVIE':
+            return action.payload;
         default:
             return state;
     }
@@ -105,7 +126,8 @@ const reducer = combineReducers({
     toggleModal,
     isAuthorized,
     listFavoriteMovies,
-    listWatchLater
+    listWatchLater,
+    selectMovie
 })
 
 export const store = createStore(reducer);

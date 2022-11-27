@@ -1,5 +1,5 @@
 import {AppBar, Button, Stack} from "@mui/material";
-import React, {useState} from 'react';
+import React from 'react';
 import {HeaderInner, HeaderLink} from "./styled";
 import LoginModal from "../authorization/login-modal";
 import {useDispatch, useSelector} from "react-redux";

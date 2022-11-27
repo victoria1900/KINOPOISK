@@ -1,9 +1,7 @@
-import React, {useState} from 'react';
-import {Button, ButtonGroup, Typography} from "@mui/material";
-import {movieListData} from "../../../../core/data/movie-list-data";
+import React from 'react';
+import {ButtonGroup} from "@mui/material";
 import {useDispatch, useSelector} from "react-redux";
 import {ButtonPaginate, PagesPaginate} from "./styled";
-import {genreSelect} from "../filters/selects/genre-select";
 
 export const contentPerPage = 10;
 const CustomPagination = () => {
