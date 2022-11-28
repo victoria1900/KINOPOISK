@@ -3,9 +3,7 @@ import {Grid} from "@mui/material";
 import MovieCard from "./movie-card/movie-card";
 import {useDispatch, useSelector} from "react-redux";
 import {paginate} from "../../../core/utils/paginate";
-import {yearSelect} from "../side-menu/filters/selects/year-select";
-import {popularSelect} from "../side-menu/filters/selects/popular-select";
-import {genreSelect} from "../side-menu/filters/selects/genre-select";
+import {yearSelect, popularSelect, genreSelect} from "../../../core/utils/selects";
 import {sortSelectedMovies} from "../../../core/utils/sort-selected-movies";
 
 const MovieList = () => {

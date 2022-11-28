@@ -10,13 +10,13 @@ const CustomPagination = () => {
     const moviesLength = useSelector(state => state.moviesLength);
     const totalPages = Math.ceil(moviesLength.length / contentPerPage);
 
-    function nextPage() {
+    const nextPage = () => {
         if (currentPage < totalPages) {
             dispatch({type: 'NEXT', payload: currentPage});
         }
     }
 
-    function backPage() {
+    const backPage = () => {
         if (currentPage > 1) {
             dispatch({type: 'BACK', payload: currentPage});
         }

@@ -1,7 +1,7 @@
 import React from 'react';
 import {CardContent, Typography} from "@mui/material";
 import {ButtonDetail, CardBox, CardDesc, DetailContainer, MovieTitle} from "./styled";
-import CardIcons from "../../../../../core/utils/card-icons";
+import CardIcons from "./card-icons/card-icons";
 import {useNavigate} from "react-router-dom";
 
 const CardInfo = ({movie}) => {

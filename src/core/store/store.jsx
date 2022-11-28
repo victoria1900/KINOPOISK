@@ -50,7 +50,6 @@ const sortByGenre = (state = [], action) => {
     }
 }
 
-
 const moviesLength = (state = movieListData, action) => {
     switch (action.type) {
         case 'GET_MOVIES_LENGTH':

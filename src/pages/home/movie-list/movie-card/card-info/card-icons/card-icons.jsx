@@ -4,7 +4,7 @@ import FavoriteBorder from "@mui/icons-material/FavoriteBorder";
 import Favorite from "@mui/icons-material/Favorite";
 import BookmarkBorderIcon from "@mui/icons-material/BookmarkBorder";
 import BookmarkIcon from "@mui/icons-material/Bookmark";
-import {CardBox} from "../../pages/home/movie-list/movie-card/card-info/styled";
+import {CardBox} from "../styled";
 import {useDispatch, useSelector} from "react-redux";
 
 const CardIcons = ({movie}) => {
